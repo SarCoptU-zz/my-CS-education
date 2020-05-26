@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pagetitle %}
+    <h1>Add New Course</h1>
+    <h2>Please insert details for the new the course in the form below</h2>
+{% endblock %}
+
+{% block body %}
+    <form action="/new" method="post">
+        <label for="title">Course title here:</label>
+        <input name="title" type="text" placeholder="Course Title">
+
+        <br><br>
+
+        <label for="category">Select course category:</label>
+        <select name="category" default="coreCS">
+            <option name="prerequisites">Prerequisites</option>
+            <option name="introCS">Intro CS</option>
+            <option name="coreCS">Core CS</option>
+            <option name="advancedCS">Advanced CS</option>
+        </select>
+
+        <br><br>
+
+        <label for="duration">Course duration in weeks:</label>
+        <input name="duration" type="number" placeholder="Duration" min="0">
+
+        <br><br>
+
+        <label for="effort">Course duration in hours per week</label>
+        <input name="effort" type="number" placeholder="Hours / week" min="0">
+
+        <br><br>
+
+        <input type="submit" value="Submit Course">
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block pagetitle %}
+    <h1>Courses in progress / done</h1>
+    <h2><a href="/new">New Course</a></h2>
+{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <th>ID</th><th>Title</th><th>Category</th><th>Duration</th><th>Effort</th><th>Date started</th><th>Date finished</th>
+        </thead>
+        <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row["id"] }}</td><td>{{ row["title"] }}</td><td>{{ row["tag"] }}</td>
+                <td>{{ row["duration"] }} weeks</td><td>{{ row["effort"] }} hours/week</td><td>{{ row["started"] }}</td>
+                <td><a href="/" action="/" method="post">Incomplete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
