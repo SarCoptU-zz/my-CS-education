@@ -12,10 +12,10 @@ def index():
     rows = db.execute("SELECT * FROM courses;")
     if request.method == "GET":
         return render_template("index.html", rows=rows)
-    # TODO insert current time in the finished column
+
+    # insert current time in the finished column
     #else:
-        #db.execute("UPDATE time SET ended = strftime('%d/%m/%Y','now','localtime') WHERE id=':id';", id=row["id"]) needs some work here
-        # not exactly sure if it's row["id"] or if I have to use request.form.get("id")
+        #db.execute("UPDATE time SET ended = strftime('%d/%m/%Y','now','localtime') WHERE id=':id';", id=document.querySelectory("#id"))
 
 # route for adding a new course page
 @app.route("/new", methods=["GET", "POST"])
@@ -25,24 +25,18 @@ def new():
     else:
         # variables for request forms
         title = request.form.get("title")
-        category = request.form.get("category") # radio input
+        category = request.form.get("category")
         duration = request.form.get("duration")
         effort = request.form.get("effort")
 
-        # TODO
-        # I think I can just send an alert instead of a new page
-
-        # error checks
-        # THIS IS COMMENTED OUT CODE
-        #if not title:
-        #    return render_template("apology.html", message="You must provide a title for the course")
-        #category =
-        #if not category
-        #if not duration
-        #if not effort
-
-        # insert course info into database - NEED TO CHANGE TAG TO CATEGORY - TABLE CHANGES LATER
+        # insert course info into database
         db.execute("INSERT INTO courses (title, category, duration, effort) VALUES (:title, :category, :duration, :effort);",
                     title=title, category=category, duration=duration, effort=effort)
         return redirect("/")
 
+# page for deleting courses if not introduced correctly
+@app.route("/edit", methods=["GET", "POST"])
+def edit():
+    rows = db.execute("SELECT * FROM courses;")
+    if request.method == "GET":
+        return render_template("edit.html", rows=rows)

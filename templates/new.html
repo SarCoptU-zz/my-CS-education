@@ -1,19 +1,20 @@
 {% extends "layout.html" %}
 
 {% block pagetitle %}
-    <h1>Add New Course</h1>
+    <h1>New Course</h1>
     <h2>Please insert details for the new the course in the form below</h2>
 {% endblock %}
 
 {% block body %}
     <form action="/new" method="post">
         <label for="title">Course title here:</label>
-        <input name="title" type="text" placeholder="Course Title">
+        <input name="title" type="text" placeholder="Course Title" required>
 
         <br><br>
 
         <label for="category">Select course category:</label>
-        <select name="category" default="coreCS">
+        <select name="category" required>
+            <option value="" selected disabled hidden>Choose category here</option><!-- placeholder for the select input-->
             <option name="prerequisites">Prerequisites</option>
             <option name="introCS">Intro CS</option>
             <option name="coreCS">Core CS</option>
@@ -23,12 +24,12 @@
         <br><br>
 
         <label for="duration">Course duration in weeks:</label>
-        <input name="duration" type="number" placeholder="Duration" min="0">
+        <input name="duration" type="number" placeholder="Duration" min="0" required>
 
         <br><br>
 
         <label for="effort">Course duration in hours per week</label>
-        <input name="effort" type="number" placeholder="Hours / week" min="0">
+        <input name="effort" type="number" placeholder="Hours / week" min="0" required>
 
         <br><br>
 

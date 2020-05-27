@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pagetitle %}
-    <h1>Courses in progress / done</h1>
+    <h1>Edit courses list</h1>
 {% endblock %}
 
 {% block body %}
@@ -14,7 +14,7 @@
             <tr>
                 <td>{{ row["id"] }}</td><td>{{ row["title"] }}</td><td>{{ row["category"] }}</td>
                 <td>{{ row["duration"] }} weeks</td><td>{{ row["effort"] }} hours/week</td><td>{{ row["started"] }}</td>
-                <td><form action="/" method="post"><button type="submit" value="Submit">Press to finish course</button></form></td>
+                <td><form action="/" method="post"><button type="submit" value="Submit">Delete course</button></form></td>
             </tr>
         {% endfor %}
         </tbody>

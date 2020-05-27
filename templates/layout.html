@@ -12,8 +12,14 @@
   </head>
   <body>
 
-    {% block pagetitle %}
-    {% endblock %}
+  {% block pagetitle %}
+  {% endblock %}
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/new">Add New Course</a>
+      <a href="/edit">Edit courses list</a>
+    </nav>
 
     {% block body %}
     {% endblock %}
