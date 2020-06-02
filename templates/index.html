@@ -7,14 +7,20 @@
 {% block body %}
     <table class="table table-striped">
         <thead>
-            <th>ID</th><th>Title</th><th>Category</th><th>Duration</th><th>Effort</th><th>Date started</th><th>Date finished</th>
+            <th>Title</th><th>Category</th><th>Duration</th><th>Effort</th><th>Date started</th><th>Date finished</th>
         </thead>
         <tbody>
         {% for row in rows %}
             <tr>
-                <td>{{ row["id"] }}</td><td>{{ row["title"] }}</td><td>{{ row["category"] }}</td>
+                <td>{{ row["title"] }}</td><td>{{ row["category"] }}</td>
                 <td>{{ row["duration"] }} weeks</td><td>{{ row["effort"] }} hours/week</td><td>{{ row["started"] }}</td>
-                <td><form action="/" method="post"><button type="submit" value="Submit">Press to finish course</button></form></td>
+
+                {% if row["started"] == row["ended"] %}
+                    <td><form action="/" method="post"><button type="submit" value="Submit">Press to finish course</button></form></td>
+                {% else %}
+                    <td>{{ row["ended"] }}</td>
+                {% endif %}
+
             </tr>
         {% endfor %}
         </tbody>
