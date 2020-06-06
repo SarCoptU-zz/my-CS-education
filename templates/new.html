@@ -2,28 +2,33 @@
 
 {% block pagetitle %}
     <h1>New Course</h1>
-    <h2>Please insert details for the new the course in the form below</h2>
 {% endblock %}
 
 {% block body %}
+    <p>Please insert details for the new the course in the form below</p>
     <form action="/new" method="post">
-        <label for="title">Course title here:</label>
-        <input name="title" type="text" placeholder="Course Title" required>
+        <label for="title">Course title</label>
+        <input name="title" type="text" placeholder="Course title" required>
 
         <br><br>
 
-        <label for="category">Select course category:</label>
+        <label for="platform">Learning platform</label>
+        <input name="platform" type="text" placeholder="Learning platform" required>
+
+        <br><br>
+
+        <label for="category">Select course category</label>
         <select name="category" required>
             <option value="" selected disabled hidden>Choose category here</option><!-- placeholder for the select input-->
-            <option name="prerequisites">Prerequisites</option>
-            <option name="introCS">Intro CS</option>
-            <option name="coreCS">Core CS</option>
-            <option name="advancedCS">Advanced CS</option>
+            <option name="prerequisites">1. Prerequisites</option>
+            <option name="introCS">2. Intro CS</option>
+            <option name="coreCS">3. Core CS</option>
+            <option name="advancedCS">4. Advanced CS</option>
         </select>
 
         <br><br>
 
-        <label for="duration">Course duration in weeks:</label>
+        <label for="duration">Course duration in weeks</label>
         <input name="duration" type="number" placeholder="Duration" min="0" required>
 
         <br><br>
@@ -33,6 +38,6 @@
 
         <br><br>
 
-        <input type="submit" value="Submit Course">
+        <input class="btn btn-info" type="submit" value="Submit Course">
     </form>
 {% endblock %}

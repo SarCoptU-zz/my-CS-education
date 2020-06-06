@@ -27,10 +27,3 @@ Controller – application.py program with all the functionality for the front/b
 - methods get and post for new course forms
 NB: this is not a deployable app at the moment as it is only meant to teach me how to use the flask framework
 
-Issues:
-- work on looks of the pages
-- add option to remove course if wrongly inserted, maybe style the button red, for attention
-
-CS50x2020 Intro to Computer Science – Edx -  started 12/08/2019 – still need to edit ended
-Learning How to Learn – Coursera – started 15/5/20 – still need to edit ended
-  

@@ -1,26 +1,25 @@
 {% extends "layout.html" %}
 
 {% block pagetitle %}
-    <h1>Courses in progress / done</h1>
+    <h1>My CS Education</h1>
 {% endblock %}
 
 {% block body %}
     <table class="table table-striped">
         <thead>
-            <th>Title</th><th>Category</th><th>Duration</th><th>Effort</th><th>Date started</th><th>Date finished</th>
+            <th>Title</th><th>Platform</th><th>Category</th><th>Duration</th><th>Effort</th><th>Date started</th><th>Date finished</th>
         </thead>
         <tbody>
         {% for row in rows %}
             <tr>
-                <td>{{ row["title"] }}</td><td>{{ row["category"] }}</td>
-                <td>{{ row["duration"] }} weeks</td><td>{{ row["effort"] }} hours/week</td><td>{{ row["started"] }}</td>
+                <td>{{ row.title }}</td><td>{{ row.platform }}</td><td>{{ row.category }}</td>
+                <td>{{ row.duration }} weeks</td><td>{{ row.effort }} hours/week</td><td>{{ row.started[:10] }}</td>
 
-                {% if row["started"] == row["ended"] %}
-                    <td><form action="/" method="post"><button type="submit" value="Submit">Press to finish course</button></form></td>
+                {% if row.started == row.ended %}
+                    <td><form action="/" method="post"><button name="new" class="btn btn-info" type="submit" value="{{ row.id }}">Finish course</button></form></td>
                 {% else %}
-                    <td>{{ row["ended"] }}</td>
+                    <td>{{ row.ended }}</td>
                 {% endif %}
-
             </tr>
         {% endfor %}
         </tbody>

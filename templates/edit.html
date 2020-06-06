@@ -7,14 +7,14 @@
 {% block body %}
     <table class="table table-striped">
         <thead>
-            <th>Title</th><th>Category</th><th>Duration</th><th>Effort</th><th>Date started</th><th>Date finished</th>
+            <th>Title</th><th>Platform</th><th>Category</th><th>Duration</th><th>Effort</th><th>Date started</th><th>Date finished</th>
         </thead>
         <tbody>
         {% for row in rows %}
             <tr>
-                <td>{{ row["title"] }}</td><td>{{ row["category"] }}</td>
-                <td>{{ row["duration"] }} weeks</td><td>{{ row["effort"] }} hours/week</td><td>{{ row["started"] }}</td>
-                <td><form action="/edit" method="post"><button type="submit" value="Submit">Delete course</button></form></td>
+                <td>{{ row.title }}</td><td>{{ row.platform }}</td><td>{{ row.category }}</td>
+                <td>{{ row.duration }} weeks</td><td>{{ row.effort }} hours/week</td><td>{{ row.started[:10] }}</td>
+                <td><form action="/edit" method="post"><button name="delete" class="btn btn-warning" type="submit" value="{{ row.id }}">Delete course</button></form></td>
             </tr>
         {% endfor %}
         </tbody>
