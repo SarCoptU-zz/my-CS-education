@@ -12,7 +12,7 @@
         <tbody>
         {% for row in rows %}
             <tr>
-                <td>{{ row.title }}</td><td>{{ row.platform }}</td><td>{{ row.category }}</td>
+                <td>{{ row.title }}</td><td>{{ row.platform }}</td><td>{{ row.category[3:] }}</td>
                 <td>{{ row.duration }} weeks</td><td>{{ row.effort }} hours/week</td><td>{{ row.started[:10] }}</td>
 
                 {% if row.started == row.ended %}
