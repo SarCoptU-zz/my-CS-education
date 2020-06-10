@@ -1,7 +1,5 @@
 # my-CS-education
 
-OSSU My CS Education plan
-
 Web app for keeping track of my online courses based on OSSU curriculum (Open Source Society University, github repository here: https://github.com/ossu/computer-science)
 Done in line with the CS50 web track model.
 Using Flask Python framework, HTML, CSS, JS, Bootstrap and CS50 ide.
